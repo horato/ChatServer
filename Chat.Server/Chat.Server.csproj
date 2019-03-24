@@ -12,6 +12,8 @@
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -59,7 +61,33 @@
     <Compile Include="Communication\ServerActions\Test\TestServerAction.cs" />
     <Compile Include="Database\Conventions\EnumValuesConvention.cs" />
     <Compile Include="Database\Conventions\NamingStrategy.cs" />
+    <Compile Include="Database\Conventions\ReferenceConvention.cs" />
     <Compile Include="Database\SessionContainer.cs" />
+    <Compile Include="Domain\Entities\AuditInfo.cs" />
+    <Compile Include="Domain\Entities\Base\Entity.cs" />
+    <Compile Include="Domain\Entities\Enums\MessageHistoryType.cs" />
+    <Compile Include="Domain\Entities\Enums\PermissionType.cs" />
+    <Compile Include="Domain\Entities\Enums\UserRestrictionType.cs" />
+    <Compile Include="Domain\Entities\MessageHistory.cs" />
+    <Compile Include="Domain\Entities\Permission.cs" />
+    <Compile Include="Domain\Entities\Role.cs" />
+    <Compile Include="Domain\Entities\Room.cs" />
+    <Compile Include="Domain\Entities\User.cs" />
+    <Compile Include="Domain\Entities\UserRoomMembership.cs" />
+    <Compile Include="Domain\Entities\UserRoomRestriction.cs" />
+    <Compile Include="Domain\Entities\Base\VersionedEntity.cs" />
+    <Compile Include="Domain\Maps\AuditInfoMap.cs" />
+    <Compile Include="Domain\Maps\Base\EntityMap.cs" />
+    <Compile Include="Domain\Maps\Base\VersionedEntityMap.cs" />
+    <Compile Include="Domain\Maps\MessageHistoryMap.cs" />
+    <Compile Include="Domain\Maps\PermissionMap.cs" />
+    <Compile Include="Domain\Maps\RoleMap.cs" />
+    <Compile Include="Domain\Maps\RoomMap.cs" />
+    <Compile Include="Domain\Maps\SchemaNames.cs" />
+    <Compile Include="Domain\Maps\TablePrefixes.cs" />
+    <Compile Include="Domain\Maps\UserMap.cs" />
+    <Compile Include="Domain\Maps\UserRoomMembershipMap.cs" />
+    <Compile Include="Domain\Maps\UserRoomRestriction.cs" />
     <Compile Include="ServerAssemblyDefiningType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DependencyInjection\ServerDependencyInstaller.cs" />
@@ -82,6 +110,10 @@
       <Name>Chat.Interface</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="..\SQL\Changescripts.sql">
+      <Link>Changescripts.sql</Link>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
